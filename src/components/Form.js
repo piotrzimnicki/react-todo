@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import {uid} from "../utils/IdGenerator";
+import './styles/css/fontello.css'
+export const Form = ({inputText, setInputText, todos, setTodos, setStatus, message, setMessage}) => {
 
-export const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
-    const [message, setMessage] = useState(false)
     const inputTextHandler = e => {
         if (e.target.value.length > 3) setMessage(false);
         setInputText(e.target.value);
@@ -29,7 +29,7 @@ export const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
             <div>
                 <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input"/>
                 <button onClick={submitTodoHandler} className="todo-button" type="submit">
-                    <i className="fas fa-plus-square"></i>
+                    <i className="icon-plus"></i>
                 </button>
             </div>
             <div className="select">
@@ -39,8 +39,7 @@ export const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
                     <option value="uncompleted">Uncompleted</option>
                 </select>
             </div>
-            {message ? <p className="message">Please enter at least 4 characters. You already
-                have {inputText.length}</p> : null}
+            {message ? <p className="message">Please enter at least 4 characters.</p> : null}
         </form>
     )
 }

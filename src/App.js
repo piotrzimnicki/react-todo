@@ -8,7 +8,7 @@ export function App() {
     const [todos,setTodos] = useState([]);
     const [status,setStatus] = useState('all');
     const [filteredTodos,setFilteredTodos] = useState([]);
-
+    const [message, setMessage] = useState(false)
     useEffect(()=> {
         getLocalTodos();
     },[])
@@ -45,6 +45,8 @@ export function App() {
                 <h1>Todo List</h1>
             </header>
             <Form
+                message={message}
+                setMessage={setMessage}
                 inputText={inputText}
                 setInputText={setInputText}
                 todos={todos}
@@ -53,6 +55,8 @@ export function App() {
 
             />
             <TodoList
+                message={message}
+                setMessage={setMessage}
                 filteredTodos={filteredTodos}
                 todos={todos}
                 setTodos={setTodos} />
